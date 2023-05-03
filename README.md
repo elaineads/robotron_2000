@@ -6,7 +6,7 @@ A Terra está sofrendo uma invasão alienígena e precisamos montar um robô par
 > * JavaScript: manipulando o DOM
 
 ### :fountain_pen: Protótipo
- <img width="50%" src="/doc/img/robotron-2000.png">
+ <img width="100%" src="/doc/img/robotron-2000.png">
 
 ### :hammer_and_wrench: Tecnologias Utilizadas
 <div>

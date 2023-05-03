@@ -37,26 +37,35 @@ const pecas = {
 // 'forEach' percorre os itens do array
 controle.forEach( (elemento) => {
     elemento.addEventListener('click', (evento) => {
-        // 'target' onde o click aconteceu (<button>)
-        // 'dataset' pega o conteúdo de 'data-controle'
+        // 'target' onde o click aconteceu
+        // 'dataset' pega o conteúdo de 'data-'
         // 'parentNode' pega a classe pai
         manipulaDados(evento.target.textContent, evento.target.parentNode)
-        atualizaEstatistica(evento.target.dataset.peca)
+        atualizaEstatistica(evento.target.dataset.controle, evento.target.dataset.peca)
     })
 })
 
-function manipulaDados(operação, controle) {
+function manipulaDados(operacao, controle) {
     const peca = controle.querySelector('[data-contador]');
 
-    if(operação === '-') {
+    if(operacao === '-') {
         peca.value = parseInt(peca.value) - 1;
     } else {
         peca.value = parseInt(peca.value) + 1;
     }
 }
 
-function atualizaEstatistica(peca) {
+function atualizaEstatistica(operacao, peca) {
     estatistica.forEach( (elemento) => {
-        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
+        if(operacao === '+') {
+            elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica];
+        } else {
+            elemento.textContent = parseInt(elemento.textContent) - pecas[peca][elemento.dataset.estatistica]
+        }
+        
     })
 }
+
+function trocaImagem(cor) {
+    document.querySelector(".robo").src="img/Robotron 2000 - " + cor + ".png";
+ }
